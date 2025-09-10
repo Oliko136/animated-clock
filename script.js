@@ -55,8 +55,6 @@ function clock() {
   const min = now.getMinutes();
   const sec = now.getSeconds();
 
-  console.log(`${hr}:${min}:${sec}`);
-
   // Draw hour hand
   ctx.save();
   ctx.rotate((Math.PI / 6) * hr + (Math.PI / 360) * min + (Math.PI / 21600) * sec);
@@ -94,6 +92,8 @@ function clock() {
   ctx.restore();
 
   ctx.restore(); // restore to default state
+
+  requestAnimationFrame(clock);
 }
 
-clock();
+requestAnimationFrame(clock);
